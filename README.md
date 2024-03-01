@@ -1,37 +1,41 @@
-# ML_Kepler
-
-### Exoplanet Classification Model
+### ML_Kepler: Exoplanet Classification Model
 
 #### Overview
-This script implements a machine learning model using Support Vector Classification (SVC) to classify candidate exoplanets from a provided dataset. The model uses GridSearchCV to find the optimal parameters for the SVC, aiming to achieve the highest accuracy in classifying potential exoplanets.
+This script is crafted for the classification of candidate exoplanets from a dataset, utilizing Support Vector Classification (SVC). It incorporates GridSearchCV for optimizing the SVC model's parameters, aiming to enhance accuracy in predicting potential exoplanets.
 
 #### Requirements
 - Python 3.6+
 - scikit-learn
-- numpy (if dataset preprocessing is necessary)
+- numpy (for dataset preprocessing, if necessary)
+- TensorFlow (for deep learning model utilities)
 
 #### Setup
-1. Ensure you have Python installed on your system.
-2. Install the required Python packages using pip:
+1. Install Python on your system.
+2. Install the necessary Python packages using pip:
    ```sh
-   pip install scikit-learn numpy
+   pip install scikit-learn numpy tensorflow
    ```
 
+#### Highlighted Imports
+Before diving into the script's operation, it's important to note some key Python imports that play a significant role in data preparation:
+
+- `from sklearn.model_selection import train_test_split`: Splits the dataset into training and testing sets.
+- `from sklearn.preprocessing import LabelEncoder, MinMaxScaler`: These are used for preprocessing labels and scaling features respectively, ensuring that your model receives data in a format it can work with effectively.
+- `from tensorflow.keras.utils import to_categorical`: Converts class vectors to binary class matrices, critical for models that output predictions across multiple categories.
+
 #### How to Run
-1. Prepare your dataset with features (X) and targets (yy) representing candidate exoplanets.
-2. Place the script in the same directory as your dataset.
-3. Run the script using Python:
+1. Ensure your dataset is segmented into features (X) and targets (yy).
+2. Save the script in the directory where your dataset is located.
+3. Execute the script with the following command:
    ```sh
    python exoplanet_classification.py
    ```
-   
+
 #### Script Details
-- The script starts by splitting the dataset into training and testing sets.
-- It then defines a parameter grid for the SVC model with various values for 'C', 'gamma', and 'kernel'.
-- GridSearchCV is applied to find the optimal parameters for the SVC model.
-- The model is trained using the optimal parameters found.
-- Finally, the script fits the model to the training data and can be used to predict new candidate exoplanets.
+- **Data Preprocessing**: Utilizes `LabelEncoder` for labels and `MinMaxScaler` for feature scaling. This is crucial for models to perform optimally.
+- **Model Training**: Defines a parameter grid for the SVC model, adjusting values for 'C', 'gamma', and 'kernel'.
+- **Optimization**: Employs GridSearchCV to discover the best parameters for the SVC model.
+- **Prediction**: Fits the model to the training data, enabling it to predict new candidate exoplanets accurately.
 
 #### Note
-- Ensure your dataset is preprocessed (if necessary) before running this script.
-- Adjust the `param_grid` as needed to explore different parameters for the SVC model.
+Make sure your dataset is preprocessed before running this script. Adjust the `param_grid` to explore different parameters for the SVC model to potentially enhance the model's prediction accuracy further.
