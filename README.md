@@ -1,9 +1,9 @@
 
-# ML_Kepler: Exoplanet Classification Model
+# Exoplanet Classification Model
 
 ## Overview
 
-The **ML_Kepler** project is designed to classify candidate exoplanets using machine learning techniques. Specifically, it leverages a Support Vector Classification (SVC) model and deep learning utilities from TensorFlow to enhance the prediction accuracy. The model is optimized through GridSearchCV, allowing for fine-tuning of parameters to achieve the best possible performance in identifying potential exoplanets.
+The **ML_Kepler** project is designed to classify candidate exoplanets using machine learning techniques. Specifically, it leverages a Support Vector Classification (SVC) model and deep learning utilities from TensorFlow to enhance the prediction accuracy. The model is optimized through GridSearchCV, allowing for fine-tuning parameters to achieve the best possible performance in identifying potential exoplanets.
 
 ## Requirements
 
@@ -26,21 +26,21 @@ The **ML_Kepler** project is designed to classify candidate exoplanets using mac
 
 The script begins by reading the exoplanet dataset (`exoplanet_data.csv`) and performing basic data cleaning. Null columns and rows are removed to ensure the dataset is clean and ready for analysis.
 
-- **Feature Selection**: The script identifies and selects key features relevant to the classification task. These features include astrophysical parameters such as period errors, impact errors, and stellar temperatures, among others.
+- **Feature Selection**: The script identifies and selects key features relevant to the classification task. These features include astrophysical parameters such as period errors, impact errors, and stellar temperatures.
 
-- **Data Splitting**: The dataset is split into training and testing sets using `train_test_split`. This allows the model to learn from one portion of the data and validate its performance on another.
+- **Data Splitting**: The dataset is split into training and testing sets using `train_test_split.` This allows the model to learn from one data portion and validate its performance on another.
 
-- **Preprocessing**: The features are scaled using `MinMaxScaler` to normalize the data, which is crucial for ensuring that the SVC model performs optimally. Additionally, the target labels are encoded using `LabelEncoder` and converted into a one-hot encoded format using TensorFlow's `to_categorical`, preparing the data for classification.
+- **Preprocessing**: The features are scaled using `MinMaxScaler` to normalize the data, which is crucial for ensuring that the SVC model performs optimally. Additionally, the target labels are encoded using `LabelEncoder` and converted into a one-hot encoded format using TensorFlow's `to_categorical,` preparing the data for classification.
 
 ### Model Training
 
-The classification model is built using a neural network with TensorFlow's `Sequential` API. The model architecture consists of:
+The classification model uses a neural network with TensorFlow's `Sequential` API. The model architecture consists of:
 
 - **Input Layer**: With 100 units and ReLU activation.
 - **Hidden Layer**: Another 100 units with ReLU activation.
 - **Output Layer**: 2 units with Softmax activation for binary classification.
 
-The model is compiled with the Adam optimizer and categorical crossentropy loss function, and then trained over 40 epochs. The training process adjusts the model weights to minimize the loss and maximize accuracy.
+The model is compiled with the Adam optimizer and categorical cross-entropy loss function and then trained over 40 epochs. The training process adjusts the model weights to minimize loss and maximize accuracy.
 
 ### Evaluation and Hyperparameter Tuning
 
@@ -61,4 +61,4 @@ Once the best model is identified, it is saved to disk using the `joblib` librar
 
 ## Findings
 
-Through this approach, the SVC model, enhanced by TensorFlow's deep learning capabilities, was optimized to classify exoplanet candidates effectively. The use of GridSearchCV allowed fine-tuning of hyperparameters, significantly improving the model's performance. This methodology can be applied to similar classification tasks in astrophysics or other domains requiring robust machine learning solutions.
+Through this approach, the SVC model, enhanced by TensorFlow's deep learning capabilities, was optimized to classify exoplanet candidates effectively. Using GridSearchCV allowed fine-tuning of hyperparameters, significantly improving the model's performance. This methodology can be applied to similar classification tasks in astrophysics or other domains requiring robust machine-learning solutions.
